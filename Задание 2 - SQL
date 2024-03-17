@@ -1,0 +1,19 @@
+Задание 2
+Проверка корректности отображения статусов заказов
+
+Статусы определяются по следующему правилу:
+Если поле finished == true, то вывести статус 2.
+Если поле canсelled == true, то вывести статус -1.
+Если поле inDelivery == true, то вывести статус 1.
+Для остальных случаев вывести 0.
+
+
+SQL-запрос:
+SELECT track,
+       CASE
+           WHEN finished THEN 2
+           WHEN cancelled THEN -1
+           WHEN inDelivery THEN 1
+           ELSE 0
+       END AS orderStatus
+FROM "Orders";
